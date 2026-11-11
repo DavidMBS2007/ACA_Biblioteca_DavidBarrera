@@ -8,14 +8,13 @@ Proyecto final – Programación Avanzada
 
 <br>
 
-**Estudiante:** _(nombre completo)_
-**Código / Documento:** _(completar)_
-**Docente:** _(nombre del docente)_
-**Institución:** _(nombre de la institución)_
+**Estudiante:** David Mateo Barrera Silva<br>
+**Documento:** 1013119249<br>
+**Docente:** Veronica Castro<br>
+**Institución:** Corporación Unificada Nacional de Educación Superior (CUN)
 
 <br>
 
-Facatativá, Cundinamarca – Colombia
 Noviembre de 2026
 
 </div>
@@ -28,7 +27,7 @@ Noviembre de 2026
 
 <br><br>
 
-SISTEMA DE GESTIÓN DE BIBLIOTECA
+SISTEMA DE GESTIÓN DE BIBLIOTECA<br>
 Aplicación de escritorio desarrollada con C#, Windows Forms y SQL Server
 
 <br>
@@ -37,12 +36,12 @@ Trabajo presentado como requisito del curso **Programación Avanzada**
 
 <br>
 
-_(Nombre del estudiante)_
+David Mateo Barrera Silva
 
 <br>
 
-_(Institución)_
-_(Programa académico)_
+Corporación Unificada Nacional de Educación Superior (CUN)<br>
+Docente: Veronica Castro<br>
 2026
 
 </div>
@@ -530,7 +529,7 @@ Las operaciones que modifican varias tablas (prestar, devolver, eliminar présta
 
 ## 12. Capturas de pantalla
 
-> Ejecute la aplicación, tome las capturas y guárdelas en `docs/capturas/` con los nombres indicados. Si exporta este documento, las imágenes se incluirán automáticamente.
+Capturas del sistema en ejecución (guardadas en `docs/capturas/`).
 
 | Pantalla | Archivo |
 |---|---|
@@ -540,43 +539,44 @@ Las operaciones que modifican varias tablas (prestar, devolver, eliminar présta
 | Módulo Autores | ![Autores](capturas/04_autores.png) |
 | Módulo Editoriales | ![Editoriales](capturas/05_editoriales.png) |
 | Módulo Préstamos | ![Préstamos](capturas/06_prestamos.png) |
+| Préstamos: selección de usuario y libro | ![Selección de préstamo](capturas/06b_prestamos_seleccion.png) |
 | Módulo Reportes | ![Reportes](capturas/07_reportes.png) |
 | Mensaje de validación (ej. ISBN duplicado) | ![Validación](capturas/08_validacion.png) |
 | Base de datos en SSMS | ![SSMS](capturas/09_ssms.png) |
 
 ## 13. Pruebas de funcionamiento
 
-Plan de pruebas funcionales. Complete la columna **Resultado obtenido** (✔ / ✘ y observaciones) al ejecutar cada caso con los datos de prueba del script.
+Plan de pruebas funcionales ejecutado el 10 de noviembre de 2026 sobre SQL Server LocalDB, con los datos de prueba del script. Se ejecutaron los casos de mayor relevancia (autores, usuarios, libros, préstamos y reportes); los casos marcados como «No ejecutada» quedan como plan de pruebas pendiente.
 
 | N.º | Módulo | Caso de prueba | Datos de entrada | Resultado esperado | Resultado obtenido |
 |---|---|---|---|---|---|
-| P01 | Autores | Registrar autor válido | Nombre «Laura», Apellido «Restrepo» | Mensaje de éxito; aparece en la grilla | |
-| P02 | Autores | Registrar autor sin nombre | Nombre vacío | Advertencia «El campo 'Nombre' es obligatorio» | |
-| P03 | Autores | Autor duplicado | «Isabel» «Allende» | Advertencia de autor existente | |
-| P04 | Autores | Eliminar autor con libros | «Gabriel García Márquez» | Advertencia: tiene libros registrados | |
-| P05 | Editoriales | Registrar editorial válida | «Editorial Norma», «Colombia» | Registro exitoso | |
-| P06 | Editoriales | Nombre duplicado | «Planeta» | Advertencia de duplicado | |
-| P07 | Usuarios | Registrar usuario válido | Datos completos y documento nuevo | Registro exitoso | |
-| P08 | Usuarios | Documento duplicado | «1012345678» | Advertencia de documento existente | |
-| P09 | Usuarios | Correo inválido | «correo-sin-arroba» | Advertencia de formato de correo | |
-| P10 | Usuarios | Eliminar usuario con préstamos | «Laura Gómez» | Advertencia: tiene préstamos | |
-| P11 | Libros | Registrar libro válido | ISBN nuevo, título, autor, editorial, 2020, 3 | Registro exitoso | |
-| P12 | Libros | ISBN duplicado | «978-0-0000-0001-1» | Advertencia de ISBN existente | |
-| P13 | Libros | Sin autor seleccionado | Autor sin elegir | Advertencia «Seleccione un autor existente» | |
-| P14 | Libros | Buscar por título | «Rayuela» | La grilla muestra solo ese libro | |
-| P15 | Libros | Buscar por autor | «Borges» | Muestra «Ficciones» y «El Aleph» | |
-| P16 | Libros | Modificar existencias | Cambiar de 3 a 5 | Valor actualizado | |
-| P17 | Préstamos | Registrar préstamo válido | Usuario «Sofía Ramírez», libro «El Aleph», fecha hoy | Préstamo en estado Prestado; existencias del libro −1 | |
-| P18 | Préstamos | Préstamo sin existencias | Libro con existencias 0 | No aparece en el combo / advertencia | |
-| P19 | Préstamos | Préstamo duplicado activo | Mismo usuario y libro activo | Advertencia de préstamo activo | |
-| P20 | Préstamos | Registrar devolución | Seleccionar préstamo activo y pulsar *Devolver* | Estado Devuelto, fecha asignada, existencias +1 | |
-| P21 | Préstamos | Devolver préstamo ya devuelto | Préstamo con estado Devuelto | Advertencia «ya fue devuelto» | |
-| P22 | Préstamos | Fecha de devolución anterior al préstamo | Fecha menor | Advertencia de fecha inválida | |
-| P23 | Préstamos | Eliminar préstamo activo | Seleccionar y confirmar | Se elimina; existencias +1 | |
-| P24 | Préstamos | Filtrar por estado | «Devuelto» | Solo préstamos devueltos | |
-| P25 | Reportes | Generar cada reporte | Seleccionar los 8 reportes | Cada uno muestra datos coherentes | |
-| P26 | Reportes | Exportar a CSV | «Préstamos activos» | Archivo CSV creado y legible en Excel | |
-| P27 | Conexión | SQL Server apagado | Detener el servicio | Mensaje claro de error de conexión | |
+| P01 | Autores | Registrar autor válido | Nombre «Laura», Apellido «Restrepo» | Mensaje de éxito; aparece en la grilla | ✔ Correcto |
+| P02 | Autores | Registrar autor sin nombre | Nombre vacío | Advertencia «El campo 'Nombre' es obligatorio» | No ejecutada |
+| P03 | Autores | Autor duplicado | «Isabel» «Allende» | Advertencia de autor existente | ✔ Correcto |
+| P04 | Autores | Eliminar autor con libros | «Gabriel García Márquez» | Advertencia: tiene libros registrados | No ejecutada |
+| P05 | Editoriales | Registrar editorial válida | «Editorial Norma», «Colombia» | Registro exitoso | No ejecutada |
+| P06 | Editoriales | Nombre duplicado | «Planeta» | Advertencia de duplicado | No ejecutada |
+| P07 | Usuarios | Registrar usuario válido | Datos completos y documento nuevo | Registro exitoso | No ejecutada |
+| P08 | Usuarios | Documento duplicado | «1012345678» | Advertencia de documento existente | ✔ Correcto |
+| P09 | Usuarios | Correo inválido | «correo-sin-arroba» | Advertencia de formato de correo | No ejecutada |
+| P10 | Usuarios | Eliminar usuario con préstamos | «Laura Gómez» | Advertencia: tiene préstamos | No ejecutada |
+| P11 | Libros | Registrar libro válido | ISBN nuevo, título, autor, editorial, 2020, 3 | Registro exitoso | No ejecutada |
+| P12 | Libros | ISBN duplicado | «978-0-0000-0001-1» | Advertencia de ISBN existente | ✔ Correcto (ver captura `08_validacion.png`) |
+| P13 | Libros | Sin autor seleccionado | Autor sin elegir | Advertencia «Seleccione un autor existente» | No ejecutada |
+| P14 | Libros | Buscar por título | «Rayuela» | La grilla muestra solo ese libro | No ejecutada |
+| P15 | Libros | Buscar por autor | «Borges» | Muestra «Ficciones» y «El Aleph» | ✔ Correcto (ver captura `02_libros.png`) |
+| P16 | Libros | Modificar existencias | Cambiar de 3 a 5 | Valor actualizado | No ejecutada |
+| P17 | Préstamos | Registrar préstamo válido | Usuario «Sofía Ramírez», libro «El Aleph», fecha hoy | Préstamo en estado Prestado; existencias del libro −1 | ✔ Correcto |
+| P18 | Préstamos | Préstamo sin existencias | Libro con existencias 0 | No aparece en el combo / advertencia | No ejecutada |
+| P19 | Préstamos | Préstamo duplicado activo | Mismo usuario y libro activo | Advertencia de préstamo activo | ✔ Correcto |
+| P20 | Préstamos | Registrar devolución | Seleccionar préstamo activo y pulsar *Devolver* | Estado Devuelto, fecha asignada, existencias +1 | ✔ Correcto |
+| P21 | Préstamos | Devolver préstamo ya devuelto | Préstamo con estado Devuelto | Advertencia «ya fue devuelto» | No ejecutada |
+| P22 | Préstamos | Fecha de devolución anterior al préstamo | Fecha menor | Advertencia de fecha inválida | No ejecutada |
+| P23 | Préstamos | Eliminar préstamo activo | Seleccionar y confirmar | Se elimina; existencias +1 | No ejecutada |
+| P24 | Préstamos | Filtrar por estado | «Devuelto» | Solo préstamos devueltos | No ejecutada |
+| P25 | Reportes | Generar cada reporte | Seleccionar los 8 reportes | Cada uno muestra datos coherentes | ✔ Correcto |
+| P26 | Reportes | Exportar a CSV | «Préstamos activos» | Archivo CSV creado y legible en Excel | ✔ Correcto (archivo `evidencias/Listado_de_libros.csv`) |
+| P27 | Conexión | SQL Server apagado | Detener el servicio | Mensaje claro de error de conexión | No ejecutada |
 
 ## 14. Conclusiones
 

@@ -75,14 +75,26 @@ Detalles, diagramas, modelo E-R y diccionario de datos en [`docs/Documentacion_T
 
 ## Capturas de pantalla
 
-Guarde las capturas en `docs/capturas/` y enlácelas aquí:
+| Inicio | Libros |
+|---|---|
+| ![Inicio](docs/capturas/01_inicio.png) | ![Libros](docs/capturas/02_libros.png) |
 
-```markdown
-![Inicio](docs/capturas/01_inicio.png)
-![Libros](docs/capturas/02_libros.png)
-```
+| Usuarios | Autores |
+|---|---|
+| ![Usuarios](docs/capturas/03_usuarios.png) | ![Autores](docs/capturas/04_autores.png) |
+
+| Editoriales | Préstamos |
+|---|---|
+| ![Editoriales](docs/capturas/05_editoriales.png) | ![Préstamos](docs/capturas/06_prestamos.png) |
+
+Validación (ISBN duplicado):
+
+![Validación](docs/capturas/08_validacion.png)
 
 ## Autor
 
-- **Nombre:** _(completar)_
+- **Nombre:** David Mateo Barrera Silva
+- **Documento:** 1013119249
 - **Curso:** Programación Avanzada
+- **Docente:** Veronica Castro
+- **Institución:** Corporación Unificada Nacional de Educación Superior (CUN)
